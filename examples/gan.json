@@ -4,9 +4,9 @@
     "job_url": "https://github.com/springle/generative-adversarial-networks/archive/master.zip",
     "job_path": "generative-adversarial-networks-master",
     "job_name": "ganscript",
-    "job_context": "{\"batch_size\":128, \"d_fake_learning_rate\":0.0001, \"d_real_learning_rate\":0.0001, \"pre_train_steps\":300, \"g_learning_rate\":0.0004, \"run_name\":\"distributed\"}",
-    "shared_filesystem": "gs://springle-tensorflow/gandemo",
-    "gcs_key": true,
+    "job_context": "{\"batch_size\":128, \"d_fake_learning_rate\":0.0001, \"d_real_learning_rate\":0.0001, \"pre_train_steps\":300, \"g_learning_rate\":0.0004, \"run_name\":\"run1\"}",
+    "shared_filesystem": "",
+    "use_gcs_key_secret": false,
     "use_tensorboard": false,
     "user": "root",
     "tf_image": "mesosphere/dcos-tensorflow:v1.3",
@@ -14,7 +14,7 @@
     "virtual_network": false
   },
   "gpu_worker": {
-    "count": 2,
+    "count": 1,
     "gpus": 1,
     "cpus": 2,
     "mem": 4096,
@@ -29,8 +29,8 @@
     "disk": 4096,
     "disk_type": "ROOT"
   },
-  "ps": {
-    "count": 1,
+  "parameter_server": {
+    "count": 0,
     "port": 2223,
     "cpus": 1,
     "mem": 4096,

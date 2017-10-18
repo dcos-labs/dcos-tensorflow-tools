@@ -6,7 +6,7 @@
     "job_name": "demo",
     "job_context": "{\"learning_rate\":0.5,\"num_training_steps\":1000000}",
     "shared_filesystem": "",
-    "gcs_key": false,
+    "use_gcs_key_secret": false,
     "use_tensorboard": false,
     "user": "root",
     "tf_image": "mesosphere/dcos-tensorflow:v1.3",
@@ -34,7 +34,7 @@
     "disk": 1024,
     "disk_type": "ROOT"
   },
-  "ps": {
+  "parameter_server": {
     "count": 0,
     "port": 2223,
     "cpus": 1,
