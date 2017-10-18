@@ -1,0 +1,45 @@
+{
+  "service": {
+    "name": "six-gpu-benchmark",
+    "job_url": "https://github.com/springle/tf_examples/archive/master.zip",
+    "job_path": "tf_examples-master/benchmarks",
+    "job_name": "tf_cnn_benchmarks",
+    "job_context": "{ \"batch_size\" : 64, \"num_batches\" : 50, \"variable_update\" : \"parameter_server\" }",
+    "shared_filesystem": "",
+    "gcs_key": false,
+    "use_tensorboard": false,
+    "user": "root",
+    "tf_image": "mesosphere/dcos-tensorflow:v1.3",
+    "gpu_tf_image": "mesosphere/dcos-tensorflow:v1.3-gpu",
+    "virtual_network": true
+  },
+  "gpu_worker": {
+    "count": 3,
+    "gpus": 2,
+    "cpus": 1,
+    "mem": 5120,
+    "disk": 5120,
+    "disk_type": "ROOT"
+  },
+  "worker": {
+    "count": 0,
+    "port": 2222,
+    "cpus": 1,
+    "mem": 4096,
+    "disk": 4096,
+    "disk_type": "ROOT"
+  },
+  "ps": {
+    "count": 1,
+    "port": 2223,
+    "cpus": 1,
+    "mem": 4096,
+    "disk": 1024,
+    "disk_type": "ROOT"
+  },
+  "tensorboard": {
+    "port": 6006,
+    "cpus": 1,
+    "mem": 1024
+  }
+}
