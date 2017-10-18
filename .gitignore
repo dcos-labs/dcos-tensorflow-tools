@@ -6,6 +6,12 @@ __pycache__/
 # C extensions
 *.so
 
+# OS X
+.DS_Store
+
+# examples
+examples/local/
+
 # Distribution / packaging
 .Python
 env/

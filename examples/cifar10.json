@@ -1,0 +1,45 @@
+{
+  "service": {
+    "name": "cifar10",
+    "job_url": "https://s3-us-west-2.amazonaws.com/springle-tensorflow/slim.tar.gz",
+    "job_path": "slim",
+    "job_name": "train_image_classifier",
+    "job_context": "{ \"dataset_name\" : \"cifar10\", \"dataset_dir\" : \"gs://springle-tensorflow/cifar10-data\", \"model_name\": \"inception_v3\" }",
+    "shared_filesystem": "gs://springle-tensorflow/cifar-demo/distributed",
+    "gcs_key": true,
+    "use_tensorboard": false,
+    "user": "root",
+    "tf_image": "mesosphere/dcos-tensorflow:v1.3",
+    "gpu_tf_image": "mesosphere/dcos-tensorflow:v1.3-gpu",
+    "virtual_network": true
+  },
+  "gpu_worker": {
+    "count": 2,
+    "gpus": 1,
+    "cpus": 2,
+    "mem": 8192,
+    "disk": 8192,
+    "disk_type": "ROOT"
+  },
+  "tensorboard": {
+    "port": 6006,
+    "cpus": 1,
+    "mem": 1000
+  },
+  "worker": {
+    "count": 0,
+    "port": 2222,
+    "cpus": 1,
+    "mem": 1024,
+    "disk": 1024,
+    "disk_type": "ROOT"
+  },
+  "ps": {
+    "count": 1,
+    "port": 2223,
+    "cpus": 1,
+    "mem": 2048,
+    "disk": 2048,
+    "disk_type": "ROOT"
+  }
+}
