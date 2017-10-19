@@ -6,7 +6,7 @@
     "job_name": "tf_cnn_benchmarks",
     "job_context": "{ \"batch_size\" : 64, \"num_batches\" : 50, \"variable_update\" : \"parameter_server\" }",
     "shared_filesystem": "",
-    "gcs_key": false,
+    "use_gcs_key_secret": false,
     "use_tensorboard": false,
     "user": "root",
     "tf_image": "mesosphere/dcos-tensorflow:v1.3",
@@ -29,7 +29,7 @@
     "disk": 4096,
     "disk_type": "ROOT"
   },
-  "ps": {
+  "paraemter_server": {
     "count": 1,
     "port": 2223,
     "cpus": 1,
