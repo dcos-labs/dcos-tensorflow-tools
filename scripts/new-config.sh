@@ -23,12 +23,12 @@ cat > examples/local/${CONFIG_NAME}.json <<'EOF'
     "job_name": "{{JOB_NAME}}",
     "job_context": "",
     "shared_filesystem": "",
-    "gcs_key": false,
+    "use_gcs_key_secret": false,
     "use_tensorboard": false,
     "user": "root",
     "tf_image": "mesosphere/dcos-tensorflow:v1.3",
     "gpu_tf_image": "mesosphere/dcos-tensorflow:v1.3-gpu",
-    "virtual_network": false
+    "virtual_network_enabled": false
   },
   "gpu_worker": {
     "count": 0,

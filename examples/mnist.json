@@ -11,7 +11,7 @@
     "user": "root",
     "tf_image": "mesosphere/dcos-tensorflow:v1.3",
     "gpu_tf_image": "mesosphere/dcos-tensorflow:v1.3-gpu",
-    "virtual_network": false
+    "virtual_network_enabled": false
   },
   "gpu_worker": {
     "count": 0,
