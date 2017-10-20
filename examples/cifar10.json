@@ -1,7 +1,7 @@
 {
   "service": {
     "name": "cifar10",
-    "job_url": "https://s3-us-west-2.amazonaws.com/springle-tensorflow/slim.tar.gz",
+    "job_url": "https://downloads.mesosphere.io/tensorflow-dcos/examples/slim.tar.gz",
     "job_path": "slim",
     "job_name": "train_image_classifier",
     "job_context": "{ \"dataset_name\" : \"cifar10\", \"dataset_dir\" : \"gs://springle-tensorflow/cifar10-data\", \"model_name\": \"inception_v3\" }",
