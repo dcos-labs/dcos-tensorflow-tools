@@ -10,8 +10,7 @@
     "use_tensorboard": false,
     "user": "root",
     "tf_image": "mesosphere/dcos-tensorflow:v1.3",
-    "gpu_tf_image": "mesosphere/dcos-tensorflow:v1.3-gpu",
-    "virtual_network": true
+    "gpu_tf_image": "mesosphere/dcos-tensorflow:v1.3-gpu"
   },
   "gpu_worker": {
     "count": 1,
@@ -29,7 +28,7 @@
     "disk": 4096,
     "disk_type": "ROOT"
   },
-  "paraemter_server": {
+  "parameter_server": {
     "count": 1,
     "port": 2223,
     "cpus": 1,
