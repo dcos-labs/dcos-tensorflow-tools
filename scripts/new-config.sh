@@ -27,8 +27,7 @@ cat > examples/local/${CONFIG_NAME}.json <<'EOF'
     "use_tensorboard": false,
     "user": "root",
     "tf_image": "mesosphere/dcos-tensorflow:v1.3",
-    "gpu_tf_image": "mesosphere/dcos-tensorflow:v1.3-gpu",
-    "virtual_network_enabled": false
+    "gpu_tf_image": "mesosphere/dcos-tensorflow:v1.3-gpu"
   },
   "gpu_worker": {
     "count": 0,
