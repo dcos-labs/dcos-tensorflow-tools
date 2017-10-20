@@ -1,7 +1,7 @@
 {
   "service": {
     "name": "mnist",
-    "job_url": "https://github.com/springle/tf_examples/archive/master.zip",
+    "job_url": "https://s3.amazonaws.com/downloads.mesosphere.io/tensorflow-dcos/examples/tf_examples-master.zip",
     "job_path": "tf_examples-master",
     "job_name": "demo",
     "job_context": "{\"learning_rate\":0.5,\"num_training_steps\":1000000}",
