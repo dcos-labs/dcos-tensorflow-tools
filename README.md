@@ -35,15 +35,15 @@ this example, we would set the job fields as follows:
 ```
 
 The `shared_filesystem` field is the last important piece to consider in the
-examples. The framework works best when you use GCS as a shared filesystem. To
-use GCS, you will need a bucket and a Service Account with read/write access to
-that bucket. Download the JSON key file for your Service Account, and add it as
-a DC/OS secret with the name `gcs_key` (as described in Build Instructions). The
-`shared_filesystem` field should point to this GCS bucket with the following format:
+examples. This framework works best when you use a GCS bucket as a shared filesystem for
+summaries and checkpoint files. The `shared_filesystem` field should point to your
+GCS bucket with the following format:
 
 ```
 gs://<bucket-name>/path/to/folder
 ```
+
+See "Using Google Cloud Storage" for details on authentication.
 
 This path will be passed to your main function as `log_dir` at runtime. If you choose not
 to specify a shared filesystem, the wrapper will pass in a persistent volume (living in
@@ -54,3 +54,12 @@ do not all have access to the latest checkpoint file.
 To create your own examples or test custom configurations, use the [bin/new-config.sh](../bin/new-config.sh)
 script. It accepts the name of your example as the only argument, and it will generate a config template
 in the un-tracked `examples/local/` directory.
+
+## Using Google Cloud Storage (Optional)
+
+Having a shared filesystem to store checkpoints and summaries is useful for distributed training jobs, and TensorFlow has a lot of built-in support for GCS. To use GCS with DC/OS TensorFlow, there are 2 options:
+
+1. Adding a DC/OS secret called `/gcs_key` with your service account key.
+2. Passing in your stringified service account key as an environment variable (WARNING: this option is significantly less secure, as your creditions will be written to an open file in `$MESOS_SANDBOX`).
+
+The first steps to using GCS are to create a bucket, create a service acount with the "Storage Admin" permission for that bucket, and download the service account JSON key. To use method 1, set `use_gcs_key_secret: true` and leave `gcs_key` blank (if this field is non-empty, it will overwrite the value pulled from your DC/OS secret). To use method 2, set `use_gcs_key_secret: false` and paste your stringified service account key to `gcs_key`.
