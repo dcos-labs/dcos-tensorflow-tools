@@ -1,4 +1,18 @@
-# dcos-tensorflow-tools
+# Examples for TensorFlow on DC/OS:
+
+## TL;DR
+
+Run one of the examples as follows:
+```bash
+$ dcos package install beta-tensorflow --options=examples/EXAMPLE_NAME.json
+```
+You should then see a service named `EXAMPLE_NAME` in your DC/OS UI.
+
+For the exact resource requirements, check the `EXAMPLE_NAME.json` file contents.
+
+The `examples/mnist.json` example requires no GPU resources by default, 1.0 CPU, 1024 MB of memory and 1024 MB disk.
+
+## The examples in detail and advanced usage
 
 The JSON files in `examples/` are configurations for example TensorFlow jobs. Each
 example specifies the number of workers, gpu workers, parameter servers, and the
