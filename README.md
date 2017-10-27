@@ -6,6 +6,8 @@ Run one of the examples as follows:
 ```bash
 $ dcos package install beta-tensorflow --options=examples/EXAMPLE_NAME.json
 ```
+(where `EXAMPLE_NAME` is the name of one the examples in the `examples` folder e.g. `mnist`)
+
 You should then see a service named `EXAMPLE_NAME` in your DC/OS UI.
 
 For the exact resource requirements, check the `EXAMPLE_NAME.json` file contents.
