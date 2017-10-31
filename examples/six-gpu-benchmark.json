@@ -1,8 +1,8 @@
 {
   "service": {
     "name": "six-gpu-benchmark",
-    "job_url": "https://downloads.mesosphere.com/tensorflow-dcos/examples/tf_examples-master.zip",
-    "job_path": "tf_examples-master/benchmarks",
+    "job_url": "https://downloads.mesosphere.com/tensorflow-dcos/examples/dcos-tensorflow-tools-master.zip",
+    "job_path": "dcos-tensorflow-tools-master/examples/source/benchmarks",
     "job_name": "tf_cnn_benchmarks",
     "job_context": "{ \"batch_size\" : 64, \"num_batches\" : 50, \"variable_update\" : \"parameter_server\" }",
     "shared_filesystem": "",
