@@ -1,4 +1,4 @@
-# CIFAR-10
+# SLIM
 
 This example trains the InceptionV3 model on the
 CIFAR-10 dataset. It builds off code in
