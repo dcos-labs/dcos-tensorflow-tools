@@ -1,7 +1,7 @@
 {
   "service": {
     "name": "slim",
-    "job_url": "https://downloads.mesosphere.com/tensorflow-dcos/examples/dcos-tensorflow-tools-master.zip",
+    "job_url": "https://downloads.mesosphere.com/tensorflow-dcos/examples/v0/dcos-tensorflow-tools-master.zip",
     "job_path": "dcos-tensorflow-tools-master/examples/source/slim",
     "job_name": "train_image_classifier",
     "job_context": "{ \"dataset_dir\" : \"gs://dcos-tensorflow/cifar10-data\", \"run_name\" : \"distributed\", \"save_summaries_secs\" : 60, \"save_interval_secs\" : 60 }",
@@ -9,8 +9,8 @@
     "use_gcs_key_secret": true,
     "use_tensorboard": false,
     "user": "root",
-    "tf_image": "mesosphere/dcos-tensorflow:v1.3",
-    "gpu_tf_image": "mesosphere/dcos-tensorflow:v1.3-gpu",
+    "tf_image": "mesosphere/dcos-tensorflow:2.7.4-1.3.0",
+    "gpu_tf_image": "mesosphere/dcos-tensorflow:2.7.4-1.3.0",
     "virtual_network": false
   },
   "gpu_worker": {
