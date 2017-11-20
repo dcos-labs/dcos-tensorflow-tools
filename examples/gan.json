@@ -8,9 +8,7 @@
     "shared_filesystem": "",
     "use_gcs_key_secret": false,
     "use_tensorboard": false,
-    "user": "root",
-    "tf_image":"mesosphere/dcos-tensorflow:2.7.4-1.3.0",
-    "gpu_tf_image": "mesosphere/dcos-tensorflow:2.7.4-1.3.0-gpu"
+    "user": "root"
   },
   "gpu_worker": {
     "count": 1,
