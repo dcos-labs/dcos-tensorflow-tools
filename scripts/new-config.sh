@@ -12,6 +12,9 @@ fi
 
 CONFIG_NAME=$1
 
+BASEDIR=$(pwd)/$(dirname "$0")
+cd "$BASEDIR"/..
+
 mkdir examples/local 2>/dev/null
 
 cat > examples/local/${CONFIG_NAME}.json <<'EOF'
