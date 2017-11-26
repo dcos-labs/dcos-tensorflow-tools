@@ -1,0 +1,44 @@
+{
+  "service": {
+    "name": "helloworld",
+    "job_url": "https://downloads.mesosphere.com/tensorflow-dcos/examples/hello.zip",
+    "job_path": "hello",
+    "job_name": "hello_world",
+    "job_context": "",
+    "shared_filesystem": "",
+    "use_gcs_key_secret": false,
+    "use_tensorboard": false,
+    "user": "root",
+    "tf_image": "mesosphere/dcos-tensorflow:v1.3",
+    "gpu_tf_image": "mesosphere/dcos-tensorflow:v1.3-gpu"
+  },
+  "gpu_worker": {
+    "count": 0,
+    "gpus": 1,
+    "cpus": 1,
+    "mem": 4096,
+    "disk": 4096,
+    "disk_type": "ROOT"
+  },
+  "worker": {
+    "count": 1,
+    "port": 2222,
+    "cpus": 1,
+    "mem": 4096,
+    "disk": 4096,
+    "disk_type": "ROOT"
+  },
+  "ps": {
+    "count": 1,
+    "port": 2223,
+    "cpus": 1,
+    "mem": 4096,
+    "disk": 4096,
+    "disk_type": "ROOT"
+  },
+  "tensorboard": {
+    "port": 6006,
+    "cpus": 1,
+    "mem": 4096
+  }
+}
