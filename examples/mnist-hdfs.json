@@ -1,0 +1,17 @@
+{
+  "service": {
+    "name": "mnist-hdfs",
+    "job_url": "https://downloads.mesosphere.com/tensorflow-dcos/examples/v0/dcos-tensorflow-tools-master.zip",
+    "job_path": "dcos-tensorflow-tools-master/examples/source/mnist",
+    "job_name": "mnist",
+    "shared_filesystem": "hdfs://name-0-node.hdfs.autoip.dcos.thisdcos.directory:9001/mnist-hdfs",
+    "use_tensorboard": true
+  },
+  "worker": {
+    "count": 2
+  },
+  "parameter_server": {
+    "count": 2
+  }
+}
+
