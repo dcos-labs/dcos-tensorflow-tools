@@ -48,7 +48,7 @@ cat > examples/local/${CONFIG_NAME}.json <<'EOF'
     "disk": 4096,
     "disk_type": "ROOT"
   },
-  "ps": {
+  "parameter_server": {
     "count": 1,
     "port": 2223,
     "cpus": 1,
