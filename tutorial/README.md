@@ -134,7 +134,7 @@ Congratulations, you have just trained your first custom TensorFlow model!
 
 **NOTE:** Once the example has completed, the `parameter-server-*` and `*worker-*` tasks will terminate, but the scheduler may still remain. This can be removed (or the computation terminated) by running:
 ```bash
-$ dcos package uninstall beta-tensorflow --app-id=helloworld
+$ dcos package uninstall beta-tensorflow --app-id=/helloworld
 ```
 
 ## Utilizing Context and Logging
