@@ -86,9 +86,7 @@ This command will generate the following template here `examples/local/helloworl
     "shared_filesystem": "",
     "use_gcs_key_secret": false,
     "use_tensorboard": false,
-    "user": "root",
-    "tf_image": "mesosphere/dcos-tensorflow:v1.3",
-    "gpu_tf_image": "mesosphere/dcos-tensorflow:v1.3-gpu"
+    "user": "root"
   },
   "gpu_worker": {
     "count": 0,
@@ -134,11 +132,10 @@ $ dcos package install beta-tensorflow --options=./helloworld.json
 ```
 Congratulations, you have just trained your first custom TensorFlow Model!
 
-**NOTE:** Once the example has completed, the `ps-*` and `*worker-*` tasks will terminate, but the `EXAMPLE_NAME` scheduler may still remain. This can be removed (or the computation terminated) by running:
+**NOTE:** Once the example has completed, the `parameter-server-*` and `*worker-*` tasks will terminate, but the scheduler may still remain. This can be removed (or the computation terminated) by running:
 ```bash
-$ dcos package uninstall beta-tensorflow --app-id=/EXAMPLE_NAME
+$ dcos package uninstall beta-tensorflow --app-id=helloworld
 ```
-
 
 ## Utilizing Context and Logging
 
