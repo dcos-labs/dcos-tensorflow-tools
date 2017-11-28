@@ -12,6 +12,9 @@ fi
 
 CONFIG_NAME=$1
 
+BASEDIR=$(pwd)/$(dirname "$0")
+cd "$BASEDIR"/..
+
 mkdir examples/local 2>/dev/null
 
 cat > examples/local/${CONFIG_NAME}.json <<'EOF'
@@ -25,9 +28,7 @@ cat > examples/local/${CONFIG_NAME}.json <<'EOF'
     "shared_filesystem": "",
     "use_gcs_key_secret": false,
     "use_tensorboard": false,
-    "user": "root",
-    "tf_image": "mesosphere/dcos-tensorflow:v1.3",
-    "gpu_tf_image": "mesosphere/dcos-tensorflow:v1.3-gpu"
+    "user": "root"
   },
   "gpu_worker": {
     "count": 0,
@@ -45,7 +46,7 @@ cat > examples/local/${CONFIG_NAME}.json <<'EOF'
     "disk": 4096,
     "disk_type": "ROOT"
   },
-  "ps": {
+  "parameter_server": {
     "count": 1,
     "port": 2223,
     "cpus": 1,
