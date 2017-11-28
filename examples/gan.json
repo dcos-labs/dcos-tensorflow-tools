@@ -1,16 +1,14 @@
 {
   "service": {
     "name": "gan",
-    "job_url": "https://downloads.mesosphere.com/tensorflow-dcos/examples/generative-adversarial-networks-master.zip ",
-    "job_path": "generative-adversarial-networks-master",
+    "job_url": "https://downloads.mesosphere.com/tensorflow-dcos/examples/v0/dcos-tensorflow-tools-master.zip",
+    "job_path": "dcos-tensorflow-tools-master/examples/source/gan",
     "job_name": "ganscript",
     "job_context": "{\"batch_size\":128, \"d_fake_learning_rate\":0.0001, \"d_real_learning_rate\":0.0001, \"pre_train_steps\":300, \"g_learning_rate\":0.0004, \"run_name\":\"run1\"}",
     "shared_filesystem": "",
     "use_gcs_key_secret": false,
     "use_tensorboard": false,
-    "user": "root",
-    "tf_image": "mesosphere/dcos-tensorflow:v1.3",
-    "gpu_tf_image": "mesosphere/dcos-tensorflow:v1.3-gpu"
+    "user": "root"
   },
   "gpu_worker": {
     "count": 1,

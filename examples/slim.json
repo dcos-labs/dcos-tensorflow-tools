@@ -1,0 +1,42 @@
+{
+  "service": {
+    "name": "slim",
+    "job_url": "https://downloads.mesosphere.com/tensorflow-dcos/examples/v0/dcos-tensorflow-tools-master.zip",
+    "job_path": "dcos-tensorflow-tools-master/examples/source/slim",
+    "job_name": "train_image_classifier",
+    "job_context": "{ \"dataset_dir\" : \"gs://dcos-tensorflow/cifar10-data\", \"run_name\" : \"distributed\", \"save_summaries_secs\" : 60, \"save_interval_secs\" : 60 }",
+    "shared_filesystem": "",
+    "use_gcs_key_secret": true,
+    "use_tensorboard": false,
+    "user": "root"
+  },
+  "gpu_worker": {
+    "count": 4,
+    "gpus": 4,
+    "cpus": 4,
+    "mem": 20480,
+    "disk": 4096,
+    "disk_type": "ROOT"
+  },
+  "worker": {
+    "count": 0,
+    "port": 2222,
+    "cpus": 1,
+    "mem": 4096,
+    "disk": 4096,
+    "disk_type": "ROOT"
+  },
+  "parameter_server": {
+    "count": 2,
+    "port": 2223,
+    "cpus": 4,
+    "mem": 20480,
+    "disk": 4096,
+    "disk_type": "ROOT"
+  },
+  "tensorboard": {
+    "port": 6006,
+    "cpus": 1,
+    "mem": 4096
+  }
+}
