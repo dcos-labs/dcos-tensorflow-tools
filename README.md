@@ -99,7 +99,7 @@ that this deployment of TensorBoard will only work correctly if you have
 configured a Shared Filesystem.
 
 Since you have a VPN pointed at your cluster, you can pull up
-[hdfs://name-0-node.hdfs.autoip.dcos.thisdcos.directory:9001/mnistdemo](hdfs://name-0-node.hdfs.autoip.dcos.thisdcos.directory:9001/mnistdemo)
+[http://tensorboard.mnist-hdfs.l4lb.thisdcos.directory:6006](http://tensorboard.mnist-hdfs.l4lb.thisdcos.directory:6006)
 to view the TensorBoard UI. TensorBoard may take a couple of minutes to
 load the summary files. Once it finishes loading, you should be able to
 use this UI to visualize your model's training progress in real-time.
