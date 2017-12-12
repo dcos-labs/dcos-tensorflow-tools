@@ -18,23 +18,21 @@ import tensorflow as tf
 
 from tensorflow.examples.tutorials.mnist import input_data
 
-FLAGS = None
-
 
 def train(server, log_dir, context):
 
     # Set FLAGS
-    FLAGS.log_dir = log_dir
-    FLAGS.fake_data = context.get('fake_data') or False
-    FLAGS.max_steps = context.get('max_steps') or 1000
-    FLAGS.learning_rate = context.get('learning_rate') or 0.001
-    FLAGS.dropout = context.get('dropout') or 0.9
-    FLAGS.data_dir = context.get('data_dir') or '/tmp'
+    log_dir = log_dir
+    fake_data = context.get('fake_data') or False
+    max_steps = context.get('max_steps') or 1000
+    learning_rate = context.get('learning_rate') or 0.001
+    dropout = context.get('dropout') or 0.9
+    data_dir = context.get('data_dir') or '/tmp'
 
     # Import data
-    mnist = input_data.read_data_sets(FLAGS.data_dir,
+    mnist = input_data.read_data_sets(data_dir,
                                       one_hot=True,
-                                      fake_data=FLAGS.fake_data)
+                                      fake_data=fake_data)
 
     # Create a multilayer model.
     with tf.device(tf.train.replica_device_setter(
@@ -124,7 +122,7 @@ def train(server, log_dir, context):
         tf.summary.scalar('cross_entropy', cross_entropy)
 
         with tf.name_scope('train'):
-            train_step = tf.train.AdamOptimizer(FLAGS.learning_rate).minimize(
+            train_step = tf.train.AdamOptimizer(learning_rate).minimize(
                 cross_entropy)
 
         with tf.name_scope('accuracy'):
@@ -139,10 +137,10 @@ def train(server, log_dir, context):
         merged = tf.summary.merge_all()
 
     # Set up Session
-    hooks = [tf.train.StopAtStepHook(last_step=FLAGS.max_steps)]
+    hooks = [tf.train.StopAtStepHook(last_step=max_steps)]
     is_chief = server.server_def.task_index == 0
-    train_writer = tf.summary.FileWriter(FLAGS.log_dir + '/train', tf.get_default_graph()) if is_chief else None
-    test_writer = tf.summary.FileWriter(FLAGS.log_dir + '/test') if is_chief else None
+    train_writer = tf.summary.FileWriter(log_dir + '/train', tf.get_default_graph()) if is_chief else None
+    test_writer = tf.summary.FileWriter(log_dir + '/test') if is_chief else None
     with tf.train.MonitoredTrainingSession(master=server.target,
                                            is_chief=is_chief,
                                            hooks=hooks) as sess:
@@ -153,9 +151,9 @@ def train(server, log_dir, context):
 
         def feed_dict(train):
             """Make a TensorFlow feed_dict: maps data onto Tensor placeholders."""
-            if train or FLAGS.fake_data:
-                xs, ys = mnist.train.next_batch(100, fake_data=FLAGS.fake_data)
-                k = FLAGS.dropout
+            if train or fake_data:
+                xs, ys = mnist.train.next_batch(100, fake_data=fake_data)
+                k = dropout
             else:
                 xs, ys = mnist.test.images, mnist.test.labels
                 k = 1.0
