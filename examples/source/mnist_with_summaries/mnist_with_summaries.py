@@ -21,7 +21,16 @@ from tensorflow.examples.tutorials.mnist import input_data
 FLAGS = None
 
 
-def train(server):
+def train(server, log_dir, context):
+
+    # Set FLAGS
+    FLAGS.log_dir = log_dir
+    FLAGS.fake_data = context.get('fake_data') or False
+    FLAGS.max_steps = context.get('max_steps') or 1000
+    FLAGS.learning_rate = context.get('learning_rate') or 0.001
+    FLAGS.dropout = context.get('dropout') or 0.9
+    FLAGS.data_dir = context.get('data_dir') or '/tmp'
+
     # Import data
     mnist = input_data.read_data_sets(FLAGS.data_dir,
                                       one_hot=True,
@@ -187,16 +196,8 @@ def main(server, log_dir, context):
     context: an optional dictionary of parameters (batch_size, learning_rate, etc.) specified at run-time
     """
 
-    # Set FLAGS
-    FLAGS.log_dir = log_dir
-    FLAGS.fake_data = context.get('fake_data') or False
-    FLAGS.max_steps = context.get('max_steps') or 1000
-    FLAGS.learning_rate = context.get('learning_rate') or 0.001
-    FLAGS.dropout = context.get('dropout') or 0.9
-    FLAGS.data_dir = context.get('data_dir') or '/tmp'
-
-    if tf.gfile.Exists(FLAGS.log_dir):
-        tf.gfile.DeleteRecursively(FLAGS.log_dir)
-    tf.gfile.MakeDirs(FLAGS.log_dir)
-    train(server)
+    if tf.gfile.Exists(log_dir):
+        tf.gfile.DeleteRecursively(log_dir)
+    tf.gfile.MakeDirs(log_dir)
+    train(server, log_dir, context)
 
