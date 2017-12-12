@@ -13,6 +13,7 @@ from __future__ import print_function
 import argparse
 import os
 import sys
+import datetime
 
 import tensorflow as tf
 
@@ -28,6 +29,7 @@ def train(server, log_dir, context):
     learning_rate = context.get('learning_rate') or 0.001
     dropout = context.get('dropout') or 0.9
     data_dir = context.get('data_dir') or '/tmp'
+    run_name = context.get('run_name') or datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
 
     # Import data
     mnist = input_data.read_data_sets(data_dir,
@@ -140,8 +142,8 @@ def train(server, log_dir, context):
     # Set up Session
     hooks = [tf.train.StopAtStepHook(last_step=max_steps)]
     is_chief = server.server_def.task_index == 0
-    train_writer = tf.summary.FileWriter(log_dir + '/train', tf.get_default_graph()) if is_chief else None
-    test_writer = tf.summary.FileWriter(log_dir + '/test') if is_chief else None
+    train_writer = tf.summary.FileWriter(log_dir + '/train-' + run_name, tf.get_default_graph()) if is_chief else None
+    test_writer = tf.summary.FileWriter(log_dir + '/test-' + run_name) if is_chief else None
     with tf.train.MonitoredTrainingSession(master=server.target,
                                            is_chief=is_chief,
                                            hooks=hooks) as sess:
