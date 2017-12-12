@@ -194,9 +194,5 @@ def main(server, log_dir, context):
     log_dir: a string providing the recommended location for training logs, summaries, and checkpoints
     context: an optional dictionary of parameters (batch_size, learning_rate, etc.) specified at run-time
     """
-
-    if tf.gfile.Exists(log_dir):
-        tf.gfile.DeleteRecursively(log_dir)
-    tf.gfile.MakeDirs(log_dir)
     train(server, log_dir, context)
 
