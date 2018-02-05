@@ -186,8 +186,9 @@ def train(server, log_dir, context):
                     if is_chief:
                         train_writer.add_summary(summary, i)
             i += 1
-        train_writer.close()
-        test_writer.close()
+        if is_chief:
+            train_writer.close()
+            test_writer.close()
 
 
 def main(server, log_dir, context):
