@@ -1,0 +1,22 @@
+{
+  "service": {
+    "name": "mnist-with-summaries",
+    "job_url": "https://downloads.mesosphere.com/tensorflow-dcos/examples/v1/dcos-tensorflow-tools-master.zip",
+    "job_path": "dcos-tensorflow-tools-master/examples/source/mnist_with_summaries",
+    "job_name": "mnist_with_summaries",
+    "job_context": "{\"learning_rate\":0.001,\"max_steps\":100000,\"run_name\":\"demo\"}",
+    "shared_filesystem": "hdfs://name-0-node.hdfs.autoip.dcos.thisdcos.directory:9001/mnistdemo",
+    "use_gcs_key_secret": false,
+    "use_tensorboard": true,
+    "user": "root"
+  },
+  "gpu_worker": {
+    "count": 0
+  },
+  "worker": {
+    "count": 3
+  },
+  "parameter_server": {
+    "count": 2
+  }
+}
