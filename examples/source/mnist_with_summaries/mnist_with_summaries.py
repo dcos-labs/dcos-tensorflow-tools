@@ -124,7 +124,7 @@ def train(server, log_dir, context):
         tf.summary.scalar('cross_entropy', cross_entropy)
 
         with tf.name_scope('train'):
-            global_step = tf.contrib.framework.get_or_create_global_step()
+            global_step = tf.train.get_or_create_global_step()
             train_step = tf.train.AdamOptimizer(learning_rate).minimize(
                 cross_entropy, global_step=global_step)
 
