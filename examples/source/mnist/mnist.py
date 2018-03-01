@@ -40,7 +40,7 @@ def main(server, log_dir, context):
         y_ = tf.placeholder(tf.float32, [None, 10])
         cross_entropy = tf.reduce_mean(
             tf.nn.softmax_cross_entropy_with_logits(labels=y_, logits=y))
-        global_step = tf.contrib.framework.get_or_create_global_step()
+        global_step = tf.train.get_or_create_global_step()
         train_op = tf.train.GradientDescentOptimizer(learning_rate).minimize(
             cross_entropy, global_step=global_step)
         hooks = [tf.train.StopAtStepHook(last_step=num_training_steps)]

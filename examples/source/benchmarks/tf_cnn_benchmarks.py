@@ -1072,7 +1072,7 @@ class BenchmarkCNN(object):
         use_synthetic_gpu_images = (self.dataset is None)
 
         with tf.device(self.global_step_device):
-            global_step = tf.contrib.framework.get_or_create_global_step()
+            global_step = tf.train.get_or_create_global_step()
 
         # Build the processing and model for the worker.
         with tf.device(self.cpu_device):
