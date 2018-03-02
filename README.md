@@ -14,7 +14,7 @@ For the exact resource requirements, check the `EXAMPLE_NAME.json` file contents
 
 The `examples/mnist.json` example requires no GPU resources by default, 1.0 CPU, 1024 MB of memory and 1024 MB disk.
 
-**NOTE:** Once the example has completed, the `ps-*` and `*worker-*` tasks will terminate, but the `EXAMPLE_NAME` scheduler may still remain. This can be removed (or the computation terminated) by running:
+**NOTE:** Once the example has completed, the `parameter-server-*` and `*worker-*` tasks will terminate, but the `EXAMPLE_NAME` scheduler may still remain. This can be removed (or the computation terminated) by running:
 ```bash
 $ dcos package uninstall beta-tensorflow --app-id=/EXAMPLE_NAME
 ```
