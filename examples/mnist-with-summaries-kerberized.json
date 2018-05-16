@@ -1,0 +1,32 @@
+{
+    "service": {
+        "name": "tensorflow",
+        "security": {
+            "kerberos": {
+                "enabled": true,
+                "kdc": {
+                    "hostname": "kdc.marathon.autoip.dcos.thisdcos.directory",
+                    "port": 2500
+                },
+                "primary": "tensorflow",
+                "realm": "LOCAL",
+                "keytab_secret": "__dcos_base64__tensorflow_keytab"
+            }
+        },
+        "hdfs": {
+            "config_uri": "http://api.hdfs.marathon.l4lb.thisdcos.directory/v1/endpoints"
+        },
+        "shared_filesystem": "hdfs://default/tensorflow",
+        "job_url": "https://downloads.mesosphere.com/tensorflow-dcos/examples/v1/dcos-tensorflow-tools-master.zip",
+        "job_path": "dcos-tensorflow-tools-master/examples/source/mnist_with_summaries",
+        "job_name": "mnist_with_summaries",
+        "job_context": "{\"learning_rate\":0.001,\"max_steps\":100000,\"run_name\":\"demo\"}",
+        "use_tensorboard": true
+    },
+    "parameter_server": {
+        "count": 1
+    },
+    "worker": {
+        "count": 2
+    }
+}
